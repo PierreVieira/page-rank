@@ -11,7 +11,7 @@ int main() {
     get_vertices(&graph, file_name);
     create_adj_matrix(&graph, file_name);
 
-    // TODO: PAGE-RANK
+    int *out_degree = get_array_out_degree(graph);
 
     destroy_graph(graph);
 
