@@ -3,11 +3,20 @@
 
 #define LINE_LENGTH 80
 
-// Função utilizada para comparar dois vértices por meio dos nomes.
 int vertex_cmp_score(const void *v1, const void *v2) {
-    return ((Vertex *)v1)->score - ((Vertex *)v2)->score;
+    Vertex *vertex1 = (Vertex *) v1;
+    Vertex *vertex2 = (Vertex *) v2;
+
+    if (vertex1->score == vertex2->score) {
+        return 0;
+    } else if (vertex1->score > vertex2->score) {
+        return -1;
+    } else {
+        return 1;
+    }
 }
 
+// Função utilizada para comparar dois vértices por meio dos nomes.
 int vertex_cmp_name(const void *v1, const void *v2) {
     // O retorno será utilizado por qsort que exige ponteiros para void no cabeçalho da função
     // de comparação. Para acessar o campo 'name' é necessário, então, um casting.
@@ -53,6 +62,9 @@ void get_vertices(Graph *graph, char *file_name) {
 
                 // Copia-se a palavra de 'word_in_line' para a variável 'name'.
                 strcpy(graph->vertices[graph->size - 1].name, words_in_line[i]);
+
+                // Inicializa todos os vértices com um page rank base.
+                graph->vertices[graph->size - 1].score = 1 - DUMPING_FACTOR;
             }
         }
     }
@@ -99,9 +111,10 @@ void create_adj_matrix(Graph *graph, char *file_name) {
 void show_vertices(Graph graph) {
     for (int i = 0; i < graph.size; i++) {
         Vertex v = graph.vertices[i];
-        printf("%2d → %20s | PR: %f\n", i + 1, v.name, v.score);
+        printf("%2d → %-20s\tOUT: %2d\t\tPR: %f\n", i + 1, v.name, v.out_degree, v.score);
     }
-    puts("---------------------------------------");
+
+    putchar('\n');
 }
 
 void show_adj_matrix(Graph graph) {

@@ -18,6 +18,10 @@ int main() {
     float tolerance = 0.1;
     set_page_rank(&graph, tolerance);
 
+    // Ordena o vetor em ordem decrescente em relação ao score.
+    qsort(graph.vertices, graph.size, sizeof(Vertex), vertex_cmp_score);
+
+    // Mostra os vértices.
     show_vertices(graph);
 
     destroy_graph(graph);
@@ -68,7 +72,4 @@ void set_page_rank(Graph *graph, float tolerance) {
         }
 
     } while (diff_sum >= tolerance);
-
-    // Ordena o vetor de vértices em relação ao score
-    qsort(graph->vertices, graph->size, sizeof(Vertex), vertex_cmp_score);
 }
