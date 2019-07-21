@@ -1,9 +1,5 @@
 #include "arrays.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
 int find_vertex(char *str, Vertex vertices[], int number_of_vertices) {
     for (int i = 0; i < number_of_vertices; i++) {
         if (strcmp(str, vertices[i].name) == 0) {
@@ -22,4 +18,15 @@ int **allocate_matrix_int(int rows, int columns) {
     }
 
     return matrix;
+}
+
+void normalize(float *array, int length) {
+    float sum = 0;
+    for (int i = 0; i < length; i++) {
+        sum += array[i];
+    }
+
+    for (int i = 0; i < length; i++) {
+        array[i] /= sum;
+    }
 }

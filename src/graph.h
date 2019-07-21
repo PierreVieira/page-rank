@@ -9,9 +9,18 @@
 #ifndef _GRAPH_H_
 #define _GRAPH_H_
 
+#include <assert.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
+
+#define DUMPING_FACTOR 0.85
+
 typedef struct Vertex {
     char *name;
     float score;
+    int out_degree;
 } Vertex;
 
 typedef struct Graph {
@@ -26,6 +35,7 @@ int vertex_cmp_score(const void *v1, const void *v2);
 int vertex_cmp_name(const void *v1, const void *v2);
 void show_vertices(Graph graph);
 void show_adj_matrix(Graph graph);
+void show_top_page_rank(Graph *graph, int n_vertex);
 void destroy_graph(Graph graph);
 
 #endif

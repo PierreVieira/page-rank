@@ -1,6 +1,6 @@
 CFLAGS=-Wall -g
 
-main: graph.o arrays.o
+main: src/graph.o src/arrays.o
 
 clean: 
-	rm -f main *.o
+	rm -f main src/*.o

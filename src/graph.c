@@ -1,11 +1,6 @@
 #include "graph.h"
 #include "arrays.h"
 
-#include <assert.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
 #define LINE_LENGTH 80
 
 // Função utilizada para comparar dois vértices por meio dos nomes.
@@ -102,12 +97,9 @@ void create_adj_matrix(Graph *graph, char *file_name) {
 }
 
 void show_vertices(Graph graph) {
-    puts("---------------------------------------");
-    printf("→ Há %d vértices.\n", graph.size);
-    puts("---------------------------------------");
     for (int i = 0; i < graph.size; i++) {
-        printf("%2d. ", i + 1);
-        puts(graph.vertices[i].name);
+        Vertex v = graph.vertices[i];
+        printf("%2d → %20s | PR: %f\n", i + 1, v.name, v.score);
     }
     puts("---------------------------------------");
 }
