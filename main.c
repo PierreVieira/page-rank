@@ -67,9 +67,11 @@ void set_page_rank(Graph *graph, float tolerance) {
 
         diff_sum = 0;
         for (int i = 0; i < graph->size; i++) {
-            diff_sum = fabs(new_score[i] - graph->vertices[i].score);
+            diff_sum += fabs(new_score[i] - graph->vertices[i].score);
             graph->vertices[i].score = new_score[i];
         }
 
     } while (diff_sum >= tolerance);
+
+    free(new_score);
 }

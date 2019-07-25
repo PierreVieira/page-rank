@@ -9,6 +9,12 @@
 #ifndef _GRAPH_H_
 #define _GRAPH_H_
 
+#include <assert.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>
+
 #define DUMPING_FACTOR 0.85
 
 typedef struct Vertex {
