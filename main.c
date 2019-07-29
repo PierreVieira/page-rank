@@ -29,7 +29,7 @@ void set_out_degree(Graph *graph) {
 }
 
 /**
- * @brief Calcula o Page Rank de cada vértice e coloca no vetor new_score.
+ * @brief Calcula o Page Rank atual de cada vértice e coloca no vetor new_score.
  *
  * Cada vértice terá seu Page Rank calculado se os vértices do grafo já tiverem
  * valores de out degree inicializados por set_out_degree(). A posição do vértice em new_score
