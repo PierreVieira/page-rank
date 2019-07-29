@@ -2,7 +2,7 @@
 
 Programa escrito em C para auxiliar nas aulas de Page Rank em Matemática Discreta do curso de Engenharia de Computação (CEFET-MG) ministradas pelo professor Daniel Hasan. O código é uma remodelação do código implementado por Mônica Karine.
 
-O objetivo dessa implementação foi limpar os memory leaks do código anterior e remodelar algumas partes do código para não ocorrer warnings. Além disso, o código foi reestruturado para que no arquivo `main.c` só tenha as funções que serão implementadas pelos alunos, evitando que eles fiquem perdidos com várias outras funções que foram escondidas em arquivos separados.
+O objetivo dessa implementação foi limpar os memory leaks do código anterior e remodelar algumas partes do código para não ocorrer warnings. Além disso, o código foi reestruturado para que no arquivo `main.c` só tenha as funções que serão implementadas pelos alunos, evitando que eles fiquem perdidos com várias outras funções que nem serão implementadas por eles.
 
 ## Compilação e Execução
 Basta clonar esse repositório ou baixar o .zip.
