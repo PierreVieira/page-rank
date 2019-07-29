@@ -1,0 +1,90 @@
+\hypertarget{arrays_8h}{}\section{src/arrays.h File Reference}
+\label{arrays_8h}\index{src/arrays.h@{src/arrays.h}}
+
+
+Biblioteca criada para lidar com a alocação e com operações em vetores.  
+
+
+{\ttfamily \#include \char`\"{}graph.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int $\ast$$\ast$ \mbox{\hyperlink{arrays_8h_a8c6fb54550d45e56ea2a09462dc9f1d3}{allocate\+\_\+matrix\+\_\+int}} (int rows, int columns)
+\begin{DoxyCompactList}\small\item\em Aloca uma matriz de inteiros. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{arrays_8h_a7ae1681253bbc27a59e6ded8198fb839}{normalize}} (float $\ast$array, int length)
+\begin{DoxyCompactList}\small\item\em Normaliza um vetor de float. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{arrays_8h_a618c6471049c11e1324d7de6b1a8b2a7}{find\+\_\+vertex}} (char $\ast$str, \mbox{\hyperlink{struct_vertex}{Vertex}} vertices\mbox{[}$\,$\mbox{]}, int number\+\_\+of\+\_\+vertices)
+\begin{DoxyCompactList}\small\item\em Encontra um vértice pelo nome em um vetor do tipo \mbox{\hyperlink{struct_vertex}{Vertex}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Biblioteca criada para lidar com a alocação e com operações em vetores. 
+
+\begin{DoxyAuthor}{Author}
+Nicolas Rezende (\href{mailto:nicolasgomes0905@gmail.com}{\texttt{ nicolasgomes0905@gmail.\+com}}) Com ela, é possível alocar uma matriz dinâmicamente, ordenar um vetor, normalizar um vetor e buscar uma string em um vetor de strings.
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019-\/07-\/28 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{arrays_8h_a8c6fb54550d45e56ea2a09462dc9f1d3}\label{arrays_8h_a8c6fb54550d45e56ea2a09462dc9f1d3}} 
+\index{arrays.h@{arrays.h}!allocate\_matrix\_int@{allocate\_matrix\_int}}
+\index{allocate\_matrix\_int@{allocate\_matrix\_int}!arrays.h@{arrays.h}}
+\subsubsection{\texorpdfstring{allocate\_matrix\_int()}{allocate\_matrix\_int()}}
+{\footnotesize\ttfamily int$\ast$$\ast$ allocate\+\_\+matrix\+\_\+int (\begin{DoxyParamCaption}\item[{int}]{rows,  }\item[{int}]{columns }\end{DoxyParamCaption})}
+
+
+
+Aloca uma matriz de inteiros. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rows} & Número de linhas da matriz. \\
+\hline
+{\em columns} & Número de colunas da matriz. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int$\ast$$\ast$ Referência para a matriz alocada. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{arrays_8h_a618c6471049c11e1324d7de6b1a8b2a7}\label{arrays_8h_a618c6471049c11e1324d7de6b1a8b2a7}} 
+\index{arrays.h@{arrays.h}!find\_vertex@{find\_vertex}}
+\index{find\_vertex@{find\_vertex}!arrays.h@{arrays.h}}
+\subsubsection{\texorpdfstring{find\_vertex()}{find\_vertex()}}
+{\footnotesize\ttfamily int find\+\_\+vertex (\begin{DoxyParamCaption}\item[{char $\ast$}]{str,  }\item[{\mbox{\hyperlink{struct_vertex}{Vertex}}}]{vertices\mbox{[}$\,$\mbox{]},  }\item[{int}]{number\+\_\+of\+\_\+vertices }\end{DoxyParamCaption})}
+
+
+
+Encontra um vértice pelo nome em um vetor do tipo \mbox{\hyperlink{struct_vertex}{Vertex}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & Nome do vértice. \\
+\hline
+{\em vertices} & Vetor de vértices no qual o vértice será procurado. \\
+\hline
+{\em number\+\_\+of\+\_\+vertices} & O tamanho do vetor de vértices. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Índice da primeira aparição do vértice encontrado. Caso não encontre, retorna -\/1. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{arrays_8h_a7ae1681253bbc27a59e6ded8198fb839}\label{arrays_8h_a7ae1681253bbc27a59e6ded8198fb839}} 
+\index{arrays.h@{arrays.h}!normalize@{normalize}}
+\index{normalize@{normalize}!arrays.h@{arrays.h}}
+\subsubsection{\texorpdfstring{normalize()}{normalize()}}
+{\footnotesize\ttfamily void normalize (\begin{DoxyParamCaption}\item[{float $\ast$}]{array,  }\item[{int}]{length }\end{DoxyParamCaption})}
+
+
+
+Normaliza um vetor de float. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & Vetor que será normalizado. \\
+\hline
+{\em length} & Tamanho do array que será normalizado. \\
+\hline
+\end{DoxyParams}

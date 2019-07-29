@@ -1,0 +1,190 @@
+\hypertarget{graph_8h}{}\section{src/graph.h File Reference}
+\label{graph_8h}\index{src/graph.h@{src/graph.h}}
+
+
+Biblioteca responsável por toda a estruturação e manipulação de um grafo.  
+
+
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_vertex}{Vertex}}
+\begin{DoxyCompactList}\small\item\em Utilizada para representar características de um vértice que téra o Page Rank calculado. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_graph}{Graph}}
+\begin{DoxyCompactList}\small\item\em Utilizada para representar características de um vértice que téra o Page Rank Calculado. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{graph_8h_a7cbbb0745a8df0a3db3b6e2778adc100}\label{graph_8h_a7cbbb0745a8df0a3db3b6e2778adc100}} 
+\#define {\bfseries D\+U\+M\+P\+I\+N\+G\+\_\+\+F\+A\+C\+T\+OR}~0.\+85
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{graph_8h_a01e961c9d030e569dbe0c6eb67a5e9fb}\label{graph_8h_a01e961c9d030e569dbe0c6eb67a5e9fb}} 
+typedef struct \mbox{\hyperlink{struct_vertex}{Vertex}} \mbox{\hyperlink{graph_8h_a01e961c9d030e569dbe0c6eb67a5e9fb}{Vertex}}
+\begin{DoxyCompactList}\small\item\em Utilizada para representar características de um vértice que téra o Page Rank calculado. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{graph_8h_a5d294fbd6d03f6059ecd3a9e5668041c}\label{graph_8h_a5d294fbd6d03f6059ecd3a9e5668041c}} 
+typedef struct \mbox{\hyperlink{struct_graph}{Graph}} \mbox{\hyperlink{graph_8h_a5d294fbd6d03f6059ecd3a9e5668041c}{Graph}}
+\begin{DoxyCompactList}\small\item\em Utilizada para representar características de um vértice que téra o Page Rank Calculado. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{graph_8h_a8653ade204271000b2f8fa7e3a476fca}{get\+\_\+vertices}} (\mbox{\hyperlink{struct_graph}{Graph}} $\ast$graph, char $\ast$file\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Abre o arquivo .txt e descobre quais são os vértices distintos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graph_8h_a4ae994663e4b5a6af842545632100860}{create\+\_\+adj\+\_\+matrix}} (\mbox{\hyperlink{struct_graph}{Graph}} $\ast$graph, char $\ast$file\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Abre o arquivo .txt e constrói uma matriz de adjacência. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{graph_8h_a7fc78803a194aab0f6304011e8db1f43}{vertex\+\_\+cmp\+\_\+score}} (const void $\ast$v1, const void $\ast$v2)
+\begin{DoxyCompactList}\small\item\em Função utilizada para comparar dois vértices pelo seu score (page rank). \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{graph_8h_a64e84e42e79430ec4471f45cface87c1}{vertex\+\_\+cmp\+\_\+name}} (const void $\ast$v1, const void $\ast$v2)
+\begin{DoxyCompactList}\small\item\em Função utilizada por qsort() para ordenar em ordem alfabética o vetor de vértices. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graph_8h_a0c7720560633c0e2cbca33815655f7db}{show\+\_\+vertices}} (\mbox{\hyperlink{struct_graph}{Graph}} graph)
+\begin{DoxyCompactList}\small\item\em Mostra a P\+O\+S\+IÇÃO, N\+O\+ME, G\+R\+AU DE S\+AÍ\+DA e P\+A\+GE R\+A\+NK de todos os vértices. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graph_8h_abe1bd63abfd5d7e206dc3e93cb46fca2}{show\+\_\+adj\+\_\+matrix}} (\mbox{\hyperlink{struct_graph}{Graph}} graph)
+\begin{DoxyCompactList}\small\item\em Mostra a matriz de ajacência construida por \mbox{\hyperlink{graph_8h_a4ae994663e4b5a6af842545632100860}{create\+\_\+adj\+\_\+matrix()}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graph_8h_a4b02aaef8d3c896f77d4df99cca04f87}{destroy\+\_\+graph}} (\mbox{\hyperlink{struct_graph}{Graph}} graph)
+\begin{DoxyCompactList}\small\item\em Libera toda a memória alocada associada a variável do tipo \mbox{\hyperlink{struct_graph}{Graph}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Biblioteca responsável por toda a estruturação e manipulação de um grafo. 
+
+\begin{DoxyAuthor}{Author}
+Nicolas Rezende (\href{mailto:nicolasgomes0905@gmail.com}{\texttt{ nicolasgomes0905@gmail.\+com}}) É capaz de obter vértices de um arquivo texto e gerar a matriz de adjacência. Além disso, define os tipos \char`\"{}\+Vertex\char`\"{} e \char`\"{}\+Graph\char`\"{} para facilitar a manipulação dos dados.
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019-\/07-\/28 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{graph_8h_a4ae994663e4b5a6af842545632100860}\label{graph_8h_a4ae994663e4b5a6af842545632100860}} 
+\index{graph.h@{graph.h}!create\_adj\_matrix@{create\_adj\_matrix}}
+\index{create\_adj\_matrix@{create\_adj\_matrix}!graph.h@{graph.h}}
+\subsubsection{\texorpdfstring{create\_adj\_matrix()}{create\_adj\_matrix()}}
+{\footnotesize\ttfamily void create\+\_\+adj\+\_\+matrix (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_graph}{Graph}} $\ast$}]{graph,  }\item[{char $\ast$}]{file\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+Abre o arquivo .txt e constrói uma matriz de adjacência. 
+
+Cada linha e coluna representa um vértice do Grafo e os índices são correspondentes ao vetor \textquotesingle{}vertices\textquotesingle{} inicializado por \textquotesingle{}get\+\_\+vertices\textquotesingle{}. Dessa maneira, se o vértice na posição 4 possui uma aresta para o vértice na posição 2, então há um número 1 na quarta linha e segunda coluna da matriz.
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & Referência a uma variável do tipo \mbox{\hyperlink{struct_graph}{Graph}} que terá a matriz de adjacência inicializada. \\
+\hline
+{\em file\+\_\+name} & String com o path para o arquivo .txt. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{graph_8h_a4b02aaef8d3c896f77d4df99cca04f87}\label{graph_8h_a4b02aaef8d3c896f77d4df99cca04f87}} 
+\index{graph.h@{graph.h}!destroy\_graph@{destroy\_graph}}
+\index{destroy\_graph@{destroy\_graph}!graph.h@{graph.h}}
+\subsubsection{\texorpdfstring{destroy\_graph()}{destroy\_graph()}}
+{\footnotesize\ttfamily void destroy\+\_\+graph (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_graph}{Graph}}}]{graph }\end{DoxyParamCaption})}
+
+
+
+Libera toda a memória alocada associada a variável do tipo \mbox{\hyperlink{struct_graph}{Graph}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & Grafo que será destruído. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{graph_8h_a8653ade204271000b2f8fa7e3a476fca}\label{graph_8h_a8653ade204271000b2f8fa7e3a476fca}} 
+\index{graph.h@{graph.h}!get\_vertices@{get\_vertices}}
+\index{get\_vertices@{get\_vertices}!graph.h@{graph.h}}
+\subsubsection{\texorpdfstring{get\_vertices()}{get\_vertices()}}
+{\footnotesize\ttfamily void get\+\_\+vertices (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_graph}{Graph}} $\ast$}]{graph,  }\item[{char $\ast$}]{file\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+Abre o arquivo .txt e descobre quais são os vértices distintos. 
+
+Inicializa o vetor \textquotesingle{}vertices\textquotesingle{} e a variável \textquotesingle{}size\textquotesingle{} de \mbox{\hyperlink{struct_graph}{Graph}}. Ao final, \textquotesingle{}get\+\_\+vertices\textquotesingle{} ordena, pelo nome, o vetor de vértices.
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & Referência a uma variável do tipo \mbox{\hyperlink{struct_graph}{Graph}} que terá os vértices inicializado. \\
+\hline
+{\em file\+\_\+name} & String com o path para o arquivo .txt. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{graph_8h_abe1bd63abfd5d7e206dc3e93cb46fca2}\label{graph_8h_abe1bd63abfd5d7e206dc3e93cb46fca2}} 
+\index{graph.h@{graph.h}!show\_adj\_matrix@{show\_adj\_matrix}}
+\index{show\_adj\_matrix@{show\_adj\_matrix}!graph.h@{graph.h}}
+\subsubsection{\texorpdfstring{show\_adj\_matrix()}{show\_adj\_matrix()}}
+{\footnotesize\ttfamily void show\+\_\+adj\+\_\+matrix (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_graph}{Graph}}}]{graph }\end{DoxyParamCaption})}
+
+
+
+Mostra a matriz de ajacência construida por \mbox{\hyperlink{graph_8h_a4ae994663e4b5a6af842545632100860}{create\+\_\+adj\+\_\+matrix()}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & Grafo que terá a matriz de adjacência mostrada. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{graph_8h_a0c7720560633c0e2cbca33815655f7db}\label{graph_8h_a0c7720560633c0e2cbca33815655f7db}} 
+\index{graph.h@{graph.h}!show\_vertices@{show\_vertices}}
+\index{show\_vertices@{show\_vertices}!graph.h@{graph.h}}
+\subsubsection{\texorpdfstring{show\_vertices()}{show\_vertices()}}
+{\footnotesize\ttfamily void show\+\_\+vertices (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_graph}{Graph}}}]{graph }\end{DoxyParamCaption})}
+
+
+
+Mostra a P\+O\+S\+IÇÃO, N\+O\+ME, G\+R\+AU DE S\+AÍ\+DA e P\+A\+GE R\+A\+NK de todos os vértices. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & Grafo que terá os vértices mostrados. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{graph_8h_a64e84e42e79430ec4471f45cface87c1}\label{graph_8h_a64e84e42e79430ec4471f45cface87c1}} 
+\index{graph.h@{graph.h}!vertex\_cmp\_name@{vertex\_cmp\_name}}
+\index{vertex\_cmp\_name@{vertex\_cmp\_name}!graph.h@{graph.h}}
+\subsubsection{\texorpdfstring{vertex\_cmp\_name()}{vertex\_cmp\_name()}}
+{\footnotesize\ttfamily int vertex\+\_\+cmp\+\_\+name (\begin{DoxyParamCaption}\item[{const void $\ast$}]{v1,  }\item[{const void $\ast$}]{v2 }\end{DoxyParamCaption})}
+
+
+
+Função utilizada por qsort() para ordenar em ordem alfabética o vetor de vértices. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v1} & Vértice 1 \\
+\hline
+{\em v2} & Vértice 2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Retorno da função strcmp(). 
+\end{DoxyReturn}
+\mbox{\Hypertarget{graph_8h_a7fc78803a194aab0f6304011e8db1f43}\label{graph_8h_a7fc78803a194aab0f6304011e8db1f43}} 
+\index{graph.h@{graph.h}!vertex\_cmp\_score@{vertex\_cmp\_score}}
+\index{vertex\_cmp\_score@{vertex\_cmp\_score}!graph.h@{graph.h}}
+\subsubsection{\texorpdfstring{vertex\_cmp\_score()}{vertex\_cmp\_score()}}
+{\footnotesize\ttfamily int vertex\+\_\+cmp\+\_\+score (\begin{DoxyParamCaption}\item[{const void $\ast$}]{v1,  }\item[{const void $\ast$}]{v2 }\end{DoxyParamCaption})}
+
+
+
+Função utilizada para comparar dois vértices pelo seu score (page rank). 
+
+Retorna um valor M\+E\+N\+OR Q\+UE Z\+E\+RO quando V1 $<$ V2, pois essa função é utilizada para ordenar em ordem D\+E\+C\+R\+E\+S\+C\+E\+N\+TE os vértices.
+
+
+\begin{DoxyParams}{Parameters}
+{\em v1} & Vértice 1 \\
+\hline
+{\em v2} & Vértice 2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Zero se é igual, maior que zero se V1 $<$ V2 e menor que zero se V1 $>$ V2. 
+\end{DoxyReturn}

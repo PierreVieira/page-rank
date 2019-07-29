@@ -4,8 +4,8 @@
 #define LINE_LENGTH 80
 
 int vertex_cmp_score(const void *v1, const void *v2) {
-    Vertex *vertex1 = (Vertex *) v1;
-    Vertex *vertex2 = (Vertex *) v2;
+    Vertex *vertex1 = (Vertex *)v1;
+    Vertex *vertex2 = (Vertex *)v2;
 
     if (vertex1->score == vertex2->score) {
         return 0;
@@ -16,7 +16,6 @@ int vertex_cmp_score(const void *v1, const void *v2) {
     }
 }
 
-// Função utilizada para comparar dois vértices por meio dos nomes.
 int vertex_cmp_name(const void *v1, const void *v2) {
     // O retorno será utilizado por qsort que exige ponteiros para void no cabeçalho da função
     // de comparação. Para acessar o campo 'name' é necessário, então, um casting.
@@ -36,7 +35,6 @@ void get_vertices(Graph *graph, char *file_name) {
     graph->vertices = NULL;
     graph->size = 0;
 
-    // Cada linha será lida, até que fgets indique EOF (retornar NULL)
     while (fgets(line, LINE_LENGTH, pFile) != NULL) {
         // Como cada linha sempre tem duas palavras separadas por vírgula, pode-se
         // separar a linha lida do arquivo manualmente.
@@ -50,13 +48,10 @@ void get_vertices(Graph *graph, char *file_name) {
 
             // Se find_str() retornar -1, então a palavra não existe na lista e pode ser colocada.
             if (index_in_list == -1) {
-                // É alocado um novo espaço pra um vértice.
                 graph->vertices = realloc(graph->vertices, ++(graph->size) * sizeof(Vertex));
 
-                // Descobre-se o tamanho do nome do vértice que será guardado.
-                int word_size = strlen(words_in_line[i]);
-
                 // Aloca-se espaço para copiar a palavra na string 'name'.
+                int word_size = strlen(words_in_line[i]);
                 graph->vertices[graph->size - 1].name = (char *)malloc(word_size + 1);
                 assert(graph->vertices[graph->size - 1].name != NULL);
 
@@ -69,7 +64,7 @@ void get_vertices(Graph *graph, char *file_name) {
         }
     }
 
-    // Por fim, ordena-se utilizando Quick Sort o vetor de Vértices.
+    // Deixa o vetor de vértices em ordem alfabética.
     qsort(graph->vertices, graph->size, sizeof(Vertex), vertex_cmp_name);
 
     fclose(pFile);

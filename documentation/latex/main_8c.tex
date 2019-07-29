@@ -1,0 +1,93 @@
+\hypertarget{main_8c}{}\section{main.\+c File Reference}
+\label{main_8c}\index{main.c@{main.c}}
+
+
+Possui a função principal e as funções para calcular Page Rank.  
+
+
+{\ttfamily \#include \char`\"{}src/arrays.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}src/graph.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{main_8c_a458082917884cded96f22af8e9c39134}{set\+\_\+out\+\_\+degree}} (\mbox{\hyperlink{struct_graph}{Graph}} $\ast$graph)
+\begin{DoxyCompactList}\small\item\em Calcula o out degree (grau de saída) de cada vértice. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_ae0a93e244eea6d4c68b64ad6ed5ed9fb}{evaluate\+\_\+current\+\_\+page\+\_\+rank}} (\mbox{\hyperlink{struct_graph}{Graph}} graph, float $\ast$new\+\_\+score)
+\begin{DoxyCompactList}\small\item\em Calcula o Page Rank de cada vértice e coloca no vetor new\+\_\+score. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_a5e10548fffdd690f31ff357557c17366}{set\+\_\+page\+\_\+rank}} (\mbox{\hyperlink{struct_graph}{Graph}} $\ast$graph, float tolerance)
+\begin{DoxyCompactList}\small\item\em Calcula o page rank dos vértices de um grafo até que um valor de tolerância seja alcançado. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+int {\bfseries main} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Possui a função principal e as funções para calcular Page Rank. 
+
+\begin{DoxyAuthor}{Author}
+Nicolas Rezende (\href{mailto:nicolasgomes0905@gmail.com}{\texttt{ nicolasgomes0905@gmail.\+com}}) 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019-\/07-\/28 
+\end{DoxyDate}
+\begin{DoxyNote}{Note}
+Baseado no código escrito por Mônica Karine, aluna de Eng. Computação / C\+E\+F\+E\+T-\/\+MG 
+\end{DoxyNote}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{main_8c_ae0a93e244eea6d4c68b64ad6ed5ed9fb}\label{main_8c_ae0a93e244eea6d4c68b64ad6ed5ed9fb}} 
+\index{main.c@{main.c}!evaluate\_current\_page\_rank@{evaluate\_current\_page\_rank}}
+\index{evaluate\_current\_page\_rank@{evaluate\_current\_page\_rank}!main.c@{main.c}}
+\subsubsection{\texorpdfstring{evaluate\_current\_page\_rank()}{evaluate\_current\_page\_rank()}}
+{\footnotesize\ttfamily void evaluate\+\_\+current\+\_\+page\+\_\+rank (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_graph}{Graph}}}]{graph,  }\item[{float $\ast$}]{new\+\_\+score }\end{DoxyParamCaption})}
+
+
+
+Calcula o Page Rank de cada vértice e coloca no vetor new\+\_\+score. 
+
+Cada vértice terá seu Page Rank calculado se os vértices do grafo já tiverem valores de out degree inicializados por \mbox{\hyperlink{main_8c_a458082917884cded96f22af8e9c39134}{set\+\_\+out\+\_\+degree()}}. A posição do vértice em new\+\_\+score será correspondente ao vetor de vértices em graph.
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & Grafo que será calculado o page rank atual. \\
+\hline
+{\em new\+\_\+score} & Vetor que guardará o page rank de cada vértice naquele instante. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8c_a458082917884cded96f22af8e9c39134}\label{main_8c_a458082917884cded96f22af8e9c39134}} 
+\index{main.c@{main.c}!set\_out\_degree@{set\_out\_degree}}
+\index{set\_out\_degree@{set\_out\_degree}!main.c@{main.c}}
+\subsubsection{\texorpdfstring{set\_out\_degree()}{set\_out\_degree()}}
+{\footnotesize\ttfamily void set\+\_\+out\+\_\+degree (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_graph}{Graph}} $\ast$}]{graph }\end{DoxyParamCaption})}
+
+
+
+Calcula o out degree (grau de saída) de cada vértice. 
+
+Dada uma variável do tipo \mbox{\hyperlink{struct_graph}{Graph}}, essa função inicializa a variável out\+\_\+degree das posições do vetor de vértices.
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & Referência ao Grafo que terá os out degree\textquotesingle{}s calculados. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8c_a5e10548fffdd690f31ff357557c17366}\label{main_8c_a5e10548fffdd690f31ff357557c17366}} 
+\index{main.c@{main.c}!set\_page\_rank@{set\_page\_rank}}
+\index{set\_page\_rank@{set\_page\_rank}!main.c@{main.c}}
+\subsubsection{\texorpdfstring{set\_page\_rank()}{set\_page\_rank()}}
+{\footnotesize\ttfamily void set\+\_\+page\+\_\+rank (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_graph}{Graph}} $\ast$}]{graph,  }\item[{float}]{tolerance }\end{DoxyParamCaption})}
+
+
+
+Calcula o page rank dos vértices de um grafo até que um valor de tolerância seja alcançado. 
+
+Calcula-\/se iterativamente o page rank, em que o valor atual é armazenado na variável \textquotesingle{}score\textquotesingle{} da estrutura \mbox{\hyperlink{struct_vertex}{Vertex}} (Graph-\/$>$vertices\mbox{[}i\mbox{]}.score) e os valores seguintes são calculados por \mbox{\hyperlink{main_8c_ae0a93e244eea6d4c68b64ad6ed5ed9fb}{evaluate\+\_\+current\+\_\+page\+\_\+rank()}}. Para cada iteração, verifica-\/se se a soma das diferenças de page rank é menor que uma tolerância. Caso seja, o page rank final fica armazenado na variável \textquotesingle{}score\textquotesingle{} de cada vértice.
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & Grafo que será calculado o page rank. \\
+\hline
+{\em tolerance} & Condição de parada para o cálculo iterativo do page rank. \\
+\hline
+\end{DoxyParams}
