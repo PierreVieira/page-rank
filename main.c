@@ -19,7 +19,6 @@
  * @param graph Referência ao Grafo que terá os out degree's calculados.
  */
 void getVetorOutdegree(Graph *graph) {
-    /*Seu código aqui*/
     for (int i = 0; i < graph->size; i++) {
         int line_sum = 0;
         for (int j = 0; j < graph->size; j++) {
@@ -40,7 +39,6 @@ void getVetorOutdegree(Graph *graph) {
  * @param new_score Vetor que guardará o page rank de cada vértice naquele instante.
  */
 void CalculaPageRankVertice(Graph graph, float *new_score) {
-    /*Seu código aqui*/
     for (int vertex_index = 0; vertex_index < graph.size; vertex_index++) {
         float page_rank = 0;
 
@@ -73,7 +71,6 @@ void CalculaPageRank(Graph *graph, float tolerance) {
     float diff_sum;
 
     do {
-        /*Seu código aqui*/
         CalculaPageRankVertice(*graph, new_score);
         normalize(new_score, graph->size);
         diff_sum = 0;
