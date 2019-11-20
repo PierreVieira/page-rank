@@ -48,7 +48,6 @@ void CalculaPageRankVertice(Graph graph, float *new_score) {
                 page_rank += v.score /(float) v.out_degree;
             }
         }
-
         new_score[vertex_index] = (1 - DUMPING_FACTOR) + DUMPING_FACTOR * page_rank;
     }
 }
@@ -86,8 +85,8 @@ void CalculaPageRank(Graph *graph, float tolerance) {
 
 int main() {
     Graph graph;
-    //char file_name[] = "grafo.txt";
-    char file_name[] = "brasileirao_1_turno_2017.txt";
+    //char file_name[] = "text_files/grafo.txt";
+    char file_name[] = "text_files/brasileirao_1_turno_2017.txt";
     get_vertices(&graph, file_name);
     create_adj_matrix(&graph, file_name);
 
