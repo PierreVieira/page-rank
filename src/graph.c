@@ -106,7 +106,7 @@ void create_adj_matrix(Graph *graph, char *file_name) {
 void show_vertices(Graph graph) {
     for (int i = 0; i < graph.size; i++) {
         Vertex v = graph.vertices[i];
-        printf("%2d → %-20s\tOUT: %2d\t\tPR: %f\n", i + 1, v.name, v.out_degree, v.score);
+        printf("%2d -> %-20s\tOUT: %2d\t\tPR: %f\n", i + 1, v.name, v.out_degree, v.score);
     }
 
     putchar('\n');
@@ -114,7 +114,7 @@ void show_vertices(Graph graph) {
 
 void show_adj_matrix(Graph graph) {
     puts("---------------------------------------");
-    printf("→ Matriz de Adjacência %dx%d\n", graph.size, graph.size);
+    printf("→ Matriz de Adjacencia %dx%d\n", graph.size, graph.size);
     puts("---------------------------------------");
     for (int i = 0; i < graph.size; i++) {
         for (int j = 0; j < graph.size; j++) {

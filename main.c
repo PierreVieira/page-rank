@@ -8,6 +8,7 @@
 
 #include "src/arrays.h"
 #include "src/graph.h"
+#include <stdlib.h>
 
 /**
  * @brief Calcula o out degree (grau de saída) de cada vértice.
@@ -17,13 +18,13 @@
  *
  * @param graph Referência ao Grafo que terá os out degree's calculados.
  */
-void set_out_degree(Graph *graph) {
+void getVetorOutdegree(Graph *graph) {
+    /*Seu código aqui*/
     for (int i = 0; i < graph->size; i++) {
         int line_sum = 0;
         for (int j = 0; j < graph->size; j++) {
             line_sum += graph->adj_matrix[i][j];
         }
-
         graph->vertices[i].out_degree = line_sum;
     }
 }
@@ -38,14 +39,15 @@ void set_out_degree(Graph *graph) {
  * @param graph Grafo que será calculado o page rank atual.
  * @param new_score Vetor que guardará o page rank de cada vértice naquele instante.
  */
-void evaluate_current_page_rank(Graph graph, float *new_score) {
+void CalculaPageRankVertice(Graph graph, float *new_score) {
+    /*Seu código aqui*/
     for (int vertex_index = 0; vertex_index < graph.size; vertex_index++) {
         float page_rank = 0;
 
         for (int line = 0; line < graph.size; line++) {
             if (graph.adj_matrix[line][vertex_index] == 1) {
                 Vertex v = graph.vertices[line];
-                page_rank += v.score / v.out_degree;
+                page_rank += v.score /(float) v.out_degree;
             }
         }
 
@@ -66,18 +68,17 @@ void evaluate_current_page_rank(Graph graph, float *new_score) {
  * @param graph Grafo que será calculado o page rank.
  * @param tolerance Condição de parada para o cálculo iterativo do page rank.
  */
-void set_page_rank(Graph *graph, float tolerance) {
+void CalculaPageRank(Graph *graph, float tolerance) {
     float *new_score = calloc(graph->size, sizeof(float));
     float diff_sum;
 
     do {
-        evaluate_current_page_rank(*graph, new_score);
-
+        /*Seu código aqui*/
+        CalculaPageRankVertice(*graph, new_score);
         normalize(new_score, graph->size);
-
         diff_sum = 0;
         for (int i = 0; i < graph->size; i++) {
-            diff_sum += fabs(new_score[i] - graph->vertices[i].score);
+            diff_sum += fabsf(new_score[i] - graph->vertices[i].score);
             graph->vertices[i].score = new_score[i];
         }
 
@@ -88,22 +89,22 @@ void set_page_rank(Graph *graph, float tolerance) {
 
 int main() {
     Graph graph;
+    //char file_name[] = "grafo.txt";
     char file_name[] = "brasileirao_1_turno_2017.txt";
-
     get_vertices(&graph, file_name);
     create_adj_matrix(&graph, file_name);
 
     // Step 1 - Calcular o grau de saída de cada vértice.
-    set_out_degree(&graph);
+    getVetorOutdegree(&graph);
 
     // Step 2 - Calcular o page rank até que ele atinja uma mudança menor que 'tolerance'.
     float tolerance = 0.1;
-    set_page_rank(&graph, tolerance);
+    CalculaPageRank(&graph, tolerance);
 
     // Mostra os vértices ordenados do maior pro menor.
-    system("clear");
+    //system("clear");
+    system("cls");
     qsort(graph.vertices, graph.size, sizeof(Vertex), vertex_cmp_score);
     show_vertices(graph);
-
     destroy_graph(graph);
 }
